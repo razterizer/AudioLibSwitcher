@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		0739D9F32BB0C3C900964E96 /* libAudioLibSwitcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAudioLibSwitcher.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0739D9FA2BB0C5DA00964E96 /* IAudioLibSwitcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAudioLibSwitcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +25,7 @@
 		0739D9EA2BB0C3C900964E96 = {
 			isa = PBXGroup;
 			children = (
+				0739D9FA2BB0C5DA00964E96 /* IAudioLibSwitcher.h */,
 				0739D9F42BB0C3C900964E96 /* Products */,
 			);
 			sourceTree = "<group>";
