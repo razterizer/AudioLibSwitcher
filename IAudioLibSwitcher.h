@@ -6,6 +6,8 @@
 //
 
 #pragma once
+#include <string>
+
 
 namespace audio
 {
@@ -45,11 +47,11 @@ namespace audio
     
     virtual void set_source_standard_params(int src_id) = 0;
     
-    virtual void set_buffer_data_mono_16(int buf_id, const std::vector<short>& buffer) = 0;
+    virtual void set_buffer_data_mono_16(int buf_id, const std::vector<short>& buffer, int sample_rate) = 0;
     
     virtual void attach_buffer_to_source(int src_id, int buf_id) = 0;
     
-    virtual void check_and_print_error() = 0;
+    virtual virtual std::string check_error() = 0;
   };
   
 }
