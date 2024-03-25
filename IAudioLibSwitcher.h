@@ -12,6 +12,8 @@ namespace audio
   
   struct IAudioLibSwitcher
   {
+    virtual ~IAudioLibSwitcher() = default;
+  
     virtual void init() = 0;
     
     virtual void finish() = 0;
