@@ -51,7 +51,7 @@ namespace audio
     
     virtual void attach_buffer_to_source(int src_id, int buf_id) = 0;
     
-    virtual virtual std::string check_error() = 0;
+    virtual std::string check_error() = 0;
   };
   
 }
