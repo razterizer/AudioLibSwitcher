@@ -38,9 +38,9 @@ namespace audio
     
     virtual void set_source_volume(int src_id, float vol) = 0;
     
-    virtual void set_source_pitch(int src_id float pitch) = 0;
+    virtual void set_source_pitch(int src_id, float pitch) = 0;
     
-    virtual void set_source_looping(int src_id bool loop) = 0;
+    virtual void set_source_looping(int src_id, bool loop) = 0;
     
     // #NOTE: Might be deprecated.
     virtual void detach_source(int src_id) = 0;
