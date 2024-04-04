@@ -5,7 +5,7 @@ The purpose of this repository is to be an interface-based layer between differe
 The reason for such a solution is because different libs come under different licenses and you might realize that you one library doesn't suit your project because of license mismatch. This interface will allow you to then easily unplug-plug-and-play and use the library that best work for you without having to rewrite a lot of code in your project.
 
 ## API
-
+```cpp
   
     virtual void init() = 0;
     
@@ -43,3 +43,4 @@ The reason for such a solution is because different libs come under different li
     virtual void attach_buffer_to_source(unsigned int src_id, unsigned int buf_id) = 0;
     
     virtual std::string check_error() = 0;
+```
