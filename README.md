@@ -4,7 +4,8 @@ The purpose of this repository is to be an interface-based layer between differe
 
 The reason for such a solution is because different libs come under different licenses and you might realize that you one library doesn't suit your project because of license mismatch. This interface will allow you to then easily unplug-plug-and-play and use the library that best work for you without having to rewrite a lot of code in your project.
 
-The library is OpenAL-esque so that people who are used to OpenAL should be comfortable with this API.
+The API is OpenAL-esque so that people who are used to OpenAL should be comfortable with this API.
+Note that this is just a first iteration of the API and once I'm done with the `libsoundio` adapter, I will probably add more functions.
 
 ## API
 ```cpp
