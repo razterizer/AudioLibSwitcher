@@ -1,6 +1,8 @@
 # AudioLibSwitcher
 
 ![GitHub License](https://img.shields.io/github/license/razterizer/AudioLibSwitcher?color=blue)
+![Static Badge](https://img.shields.io/badge/linkage-header_only-yellow)
+![Static Badge](https://img.shields.io/badge/C%2B%2B-20-yellow)
 
 The purpose of this repository is to be an interface-based layer between different audio libraries so that you can easily switch between different audio libs.
 
