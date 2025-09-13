@@ -6,9 +6,13 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		07BDBB892E75B529002ACC96 /* IAudioLibSwitcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BDBB882E75B529002ACC96 /* IAudioLibSwitcher.h */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0739D9F32BB0C3C900964E96 /* libAudioLibSwitcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAudioLibSwitcher.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0739D9FA2BB0C5DA00964E96 /* IAudioLibSwitcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAudioLibSwitcher.h; sourceTree = "<group>"; };
+		07BDBB882E75B529002ACC96 /* IAudioLibSwitcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IAudioLibSwitcher.h; path = include/AudioLibSwitcher/IAudioLibSwitcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,7 +29,7 @@
 		0739D9EA2BB0C3C900964E96 = {
 			isa = PBXGroup;
 			children = (
-				0739D9FA2BB0C5DA00964E96 /* IAudioLibSwitcher.h */,
+				07BDBB882E75B529002ACC96 /* IAudioLibSwitcher.h */,
 				0739D9F42BB0C3C900964E96 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +49,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BDBB892E75B529002ACC96 /* IAudioLibSwitcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
