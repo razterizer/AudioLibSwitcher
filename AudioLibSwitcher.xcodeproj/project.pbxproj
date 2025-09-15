@@ -12,6 +12,8 @@
 
 /* Begin PBXFileReference section */
 		0739D9F32BB0C3C900964E96 /* libAudioLibSwitcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAudioLibSwitcher.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0799EFEE2E78751900BAE112 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0799EFEF2E78751900BAE112 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		07BDBB882E75B529002ACC96 /* IAudioLibSwitcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IAudioLibSwitcher.h; path = include/AudioLibSwitcher/IAudioLibSwitcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -29,6 +31,8 @@
 		0739D9EA2BB0C3C900964E96 = {
 			isa = PBXGroup;
 			children = (
+				0799EFEE2E78751900BAE112 /* LICENSE */,
+				0799EFEF2E78751900BAE112 /* README.md */,
 				07BDBB882E75B529002ACC96 /* IAudioLibSwitcher.h */,
 				0739D9F42BB0C3C900964E96 /* Products */,
 			);
