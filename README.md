@@ -52,11 +52,15 @@ Note that this is just a first iteration of the API and once I'm done with the `
     virtual std::string check_error() = 0;
 ```
 
-## Switching from OpenAL to applaudio
+## AudioLibSwitcher : Switching from OpenAL Soft to applaudio for your program
 
-The same documentation can be found also in the 8Beat/README.md file.
+This documentation here can be found in [`8Beat`](https://github.com/razterizer/8Beat) as well.
+
+This section describes how to change your application code to work with either `applaudio` or `OpenAL Soft`.
 
 As my own audio library [`applaudio`](https://github.com/razterizer/applaudio) is becoming more and more stable, you have the option to choose between OpenAL/OpenAL_Soft (GPL-based) and applaudio (MIT). This is nice, because it will allow you to build a release that is entirely MIT-licensed without having to be infected by the GPL-virus.
+
+### Dependencies
 
 The `dependencies` file of your application repo can now look like this:
 ```
@@ -71,6 +75,8 @@ lib/applaudio                  https://github.com/razterizer/applaudio          
 ```
 This way you'll using locked and stable versions of each library. Things relating to `OpenAL` is now commented out here.
 
+### XCode Project
+
 On Mac in the XCode project you can now choose `OpenAL` if you still want to use that:
 <img width="1089" height="441" alt="image" src="https://github.com/user-attachments/assets/7f62fc4a-8575-440b-8a47-e2163543c1a1" />
 
@@ -82,7 +88,9 @@ In your XCode project you may have the following search paths. For example:
 
 If using `OpenAL` then you can keep `../lib/AudioLibSwitcher_OpenAL/include/` and `/opt/homebrew/opt/openal-soft/include/`, but if you use `applaudio` you can just keep `../lib/AudioLibSwitcher_applaudio/include/` and `../lib/applaudio/include/` instead.
 
-Then your build script for MacOS (CoreAudio) and Linux (ALSA) would be something like:
+### Build Script
+
+Then your build script for MacOS (CoreAudio) and Linux (here Debian-based) (ALSA) would be something like:
 ```bash
 #!/bin/bash
 
@@ -128,6 +136,8 @@ cp ../../lib/Termin8or/include/Termin8or/title/fonts/* bin/fonts/
 
 cp music.ct bin/
 ```
+
+### Windows vcxproj Changes
 
 Then finally for the Windows build you need to change the external include paths from this (OpenAL-based):
 
