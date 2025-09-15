@@ -42,14 +42,13 @@ namespace audio
     
     virtual void set_source_looping(unsigned int src_id, bool loop) = 0;
     
-    // #NOTE: Might be deprecated.
-    virtual void detach_source(unsigned int src_id) = 0;
-    
     virtual void set_source_standard_params(unsigned int src_id) = 0;
     
     virtual void set_buffer_data_mono_16(unsigned int buf_id, const std::vector<short>& buffer, int sample_rate) = 0;
     
     virtual void attach_buffer_to_source(unsigned int src_id, unsigned int buf_id) = 0;
+
+    virtual void detach_buffer_from_source(unsigned int src_id) = 0;
     
     virtual std::string check_error() = 0;
   };
