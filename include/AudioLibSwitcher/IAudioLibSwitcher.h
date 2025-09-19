@@ -44,7 +44,13 @@ namespace audio
     
     virtual void set_source_standard_params(unsigned int src_id) = 0;
     
-    virtual void set_buffer_data_mono_16(unsigned int buf_id, const std::vector<short>& buffer, int sample_rate) = 0;
+    virtual void set_buffer_data_8s(unsigned int buf_id, const std::vector<short>& buffer, int num_channels, int sample_rate) = 0;
+    
+    virtual void set_buffer_data_8s(unsigned int buf_id, const std::vector<short>& buffer, int num_channels, int sample_rate) = 0;
+    
+    virtual void set_buffer_data_16s(unsigned int buf_id, const std::vector<short>& buffer, int num_channels, int sample_rate) = 0;
+    
+    virtual void set_buffer_data_32f(unsigned int buf_id, const std::vector<short>& buffer, int num_channels, int sample_rate) = 0;
     
     virtual void attach_buffer_to_source(unsigned int src_id, unsigned int buf_id) = 0;
 
