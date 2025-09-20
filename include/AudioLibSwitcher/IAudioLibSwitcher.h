@@ -16,7 +16,7 @@ namespace audio
   {
     virtual ~IAudioLibSwitcher() = default;
   
-    virtual void init() = 0;
+    virtual void init(bool enable_audio = true) = 0;
     
     virtual void finish() = 0;
   
