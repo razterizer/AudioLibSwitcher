@@ -33,9 +33,7 @@ namespace audio
     virtual bool is_source_playing(unsigned int src_id) = 0;
     
     virtual void pause_source(unsigned int src_id) = 0;
-    
-    virtual void resume_source(unsigned int src_id) = 0;
-    
+        
     virtual void stop_source(unsigned int src_id) = 0;
     
     virtual void set_source_volume(unsigned int src_id, float vol) = 0;
