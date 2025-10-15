@@ -54,7 +54,7 @@ namespace audio
 
     virtual void detach_buffer_from_source(unsigned int src_id) = 0;
     
-    virtual void init_3d_scene(float unit_scale = 1.0f) = 0;
+    virtual void init_3d_scene(float speed_of_sound) = 0;
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
 
@@ -62,14 +62,12 @@ namespace audio
         unsigned int src_id,
         const la::Mtx4& transform,
         const la::Vec3& posL, const la::Vec3& velL,
-        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero,
-        std::optional<a3d::LengthUnit> unit = std::nullopt) = 0;
+        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero) = 0;
 
     virtual bool set_listener_3d_state(
         const la::Mtx4& transform,
         const la::Vec3& posL, const la::Vec3& velL,
-        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero,
-        std::optional<a3d::LengthUnit> unit = std::nullopt) = 0;
+        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero) = 0;
 
     virtual bool set_attenuation_min_distance(float min_dist) = 0;
     virtual bool set_attenuation_max_distance(float max_dist) = 0;
