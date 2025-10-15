@@ -8,6 +8,7 @@
 #pragma once
 #include <string>
 #include <array>
+#include <optional>
 
 
 namespace audio
@@ -55,7 +56,7 @@ namespace audio
 
     virtual void detach_buffer_from_source(unsigned int src_id) = 0;
     
-    virtual void init_3d_scene(float speed_of_sound) = 0;
+    virtual void init_3d_scene() = 0;
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
 
@@ -71,11 +72,14 @@ namespace audio
         const std::array<float, 9>& rot_mtx,
         const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
 
-    virtual bool set_attenuation_min_distance(float min_dist) = 0;
-    virtual bool set_attenuation_max_distance(float max_dist) = 0;
-    virtual bool set_attenuation_constant_falloff(float const_falloff) = 0;
-    virtual bool set_attenuation_linear_falloff(float lin_falloff) = 0;
-    virtual bool set_attenuation_quadratic_falloff(float sq_falloff) = 0;
+    virtual bool set_speed_of_sound(unsigned int src_id, float speed_of_sound) = 0;
+    virtual std::optional<float> get_speed_of_sound(unsigned int src_id) = 0;
+
+    virtual bool set_attenuation_min_distance(unsigned int src_id, float min_dist) = 0;
+    virtual bool set_attenuation_max_distance(unsigned int src_id, float max_dist) = 0;
+    virtual bool set_attenuation_constant_falloff(unsigned int src_id, float const_falloff) = 0;
+    virtual bool set_attenuation_linear_falloff(unsigned int src_id, float lin_falloff) = 0;
+    virtual bool set_attenuation_quadratic_falloff(unsigned int src_id, float sq_falloff) = 0;
     
     virtual std::string check_error() = 0;
   };
