@@ -68,7 +68,7 @@ namespace audio
     // std::array<float, 9> is a row-major 3x3 matrix.
     virtual bool set_listener_channel_3d_state(
         int channel,
-        const std::array<float, 9>& transform_local_to_world,
+        const std::array<float, 9>& rot_mtx,
         const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
 
     virtual bool set_attenuation_min_distance(float min_dist) = 0;
