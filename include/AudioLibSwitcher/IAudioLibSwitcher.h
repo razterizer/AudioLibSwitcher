@@ -60,14 +60,14 @@ namespace audio
 
     virtual bool set_source_3d_state(
         unsigned int src_id,
-        const la::Mtx4& transform,
-        const la::Vec3& posL, const la::Vec3& velL,
-        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero) = 0;
+        const la::Mtx4& transform_local_to_world,
+        const la::Vec3& posL_local, const la::Vec3& velL_world,
+        const la::Vec3& posR_local = la::Vec3_Zero, const la::Vec3& velR_world = la::Vec3_Zero) = 0;
 
     virtual bool set_listener_3d_state(
-        const la::Mtx4& transform,
-        const la::Vec3& posL, const la::Vec3& velL,
-        const la::Vec3& posR = la::Vec3_Zero, const la::Vec3& velR = la::Vec3_Zero) = 0;
+        const la::Mtx4& transform_local_to_world,
+        const la::Vec3& posL_local, const la::Vec3& velL_world,
+        const la::Vec3& posR_local = la::Vec3_Zero, const la::Vec3& velR_world = la::Vec3_Zero) = 0;
 
     virtual bool set_attenuation_min_distance(float min_dist) = 0;
     virtual bool set_attenuation_max_distance(float max_dist) = 0;
