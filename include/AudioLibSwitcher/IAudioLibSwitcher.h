@@ -59,19 +59,17 @@ namespace audio
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
 
-    // std::array<float, 16> is a row-major 4x4 matrix.
+    // std::array<float, 9> is a row-major 3x3 matrix.
     virtual bool set_source_channel_3d_state(
         unsigned int src_id, int channel,
-        const std::array<float, 16>& transform_local_to_world,
-        const std::array<float, 3>& posL_local, const std::array<float, 3>& velL_world,
-        const std::array<float, 3>& posR_local = { 0.f, 0.f, 0.f }, const std::array<float, 3>& velR_world = { 0.f, 0.f, 0.f }) = 0;
+        const std::array<float, 9>& rot_mtx,
+        const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
 
-    // std::array<float, 16> is a row-major 4x4 matrix.
+    // std::array<float, 9> is a row-major 3x3 matrix.
     virtual bool set_listener_channel_3d_state(
         int channel,
-        const std::array<float, 16>& transform_local_to_world,
-        const std::array<float, 3>& posL_local, const std::array<float, 3>& velL_world,
-        const std::array<float, 3>& posR_local = { 0.f, 0.f, 0.f }, const std::array<float, 3>& velR_world = { 0.f, 0.f, 0.f }) = 0;
+        const std::array<float, 9>& transform_local_to_world,
+        const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
 
     virtual bool set_attenuation_min_distance(float min_dist) = 0;
     virtual bool set_attenuation_max_distance(float max_dist) = 0;
