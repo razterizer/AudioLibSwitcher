@@ -7,6 +7,7 @@
 
 #pragma once
 #include <string>
+#include <array>
 
 
 namespace audio
@@ -58,16 +59,18 @@ namespace audio
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
 
+    // std::array<float, 16> is a row-major 4x4 matrix.
     virtual bool set_source_3d_state(
         unsigned int src_id,
-        const la::Mtx4& transform_local_to_world,
-        const la::Vec3& posL_local, const la::Vec3& velL_world,
-        const la::Vec3& posR_local = la::Vec3_Zero, const la::Vec3& velR_world = la::Vec3_Zero) = 0;
+        const std::array<float, 16>& transform_local_to_world,
+        const std::array<float, 3>& posL_local, const std::array<float, 3>& velL_world,
+        const std::array<float, 3>& posR_local = { 0.f, 0.f, 0.f }, const std::array<float, 3>& velR_world = { 0.f, 0.f, 0.f }) = 0;
 
+    // std::array<float, 16> is a row-major 4x4 matrix.
     virtual bool set_listener_3d_state(
-        const la::Mtx4& transform_local_to_world,
-        const la::Vec3& posL_local, const la::Vec3& velL_world,
-        const la::Vec3& posR_local = la::Vec3_Zero, const la::Vec3& velR_world = la::Vec3_Zero) = 0;
+        const std::array<float, 16>& transform_local_to_world,
+        const std::array<float, 3>& posL_local, const std::array<float, 3>& velL_world,
+        const std::array<float, 3>& posR_local = { 0.f, 0.f, 0.f }, const std::array<float, 3>& velR_world = { 0.f, 0.f, 0.f }) = 0;
 
     virtual bool set_attenuation_min_distance(float min_dist) = 0;
     virtual bool set_attenuation_max_distance(float max_dist) = 0;
