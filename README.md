@@ -52,6 +52,8 @@ Note that this is just a first iteration of the API and once I'm done with the `
 
     virtual void detach_buffer_from_source(unsigned int src_id) = 0;
     
+    virtual void set_source_panning(unsigned int src_id, std::optional<float> pan = std::nullopt) = 0;
+    
     virtual void init_3d_scene() = 0;
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
