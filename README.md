@@ -52,6 +52,31 @@ Note that this is just a first iteration of the API and once I'm done with the `
 
     virtual void detach_buffer_from_source(unsigned int src_id) = 0;
     
+    virtual void init_3d_scene() = 0;
+
+    virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
+
+    // std::array<float, 9> is a row-major 3x3 matrix.
+    virtual bool set_source_3d_state_channel(
+        unsigned int src_id, int channel,
+        const std::array<float, 9>& rot_mtx,
+        const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
+
+    // std::array<float, 9> is a row-major 3x3 matrix.
+    virtual bool set_listener_3d_state_channel(
+        int channel,
+        const std::array<float, 9>& rot_mtx,
+        const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
+
+    virtual bool set_source_speed_of_sound(unsigned int src_id, float speed_of_sound) = 0;
+    virtual std::optional<float> get_source_speed_of_sound(unsigned int src_id) = 0;
+
+    virtual bool set_source_attenuation_min_distance(unsigned int src_id, float min_dist) = 0;
+    virtual bool set_source_attenuation_max_distance(unsigned int src_id, float max_dist) = 0;
+    virtual bool set_source_attenuation_constant_falloff(unsigned int src_id, float const_falloff) = 0;
+    virtual bool set_source_attenuation_linear_falloff(unsigned int src_id, float lin_falloff) = 0;
+    virtual bool set_source_attenuation_quadratic_falloff(unsigned int src_id, float sq_falloff) = 0;
+    
     virtual std::string check_error() = 0;
 ```
 
