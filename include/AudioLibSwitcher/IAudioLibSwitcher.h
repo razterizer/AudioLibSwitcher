@@ -91,8 +91,8 @@ namespace audio
     // [1, 8]. 8 = sharpest.
     virtual bool set_source_directivity_sharpness(unsigned int src_id, float directivity_sharpness) = 0;
     
-    // Cardioid, SuperCardioid, HalfRectifiedDipole, Dipole.
-    virtual bool set_source_directivity_type(unsigned int src_id, DirectivityType directivity_type) = 0;
+    // 0 = Cardioid, 1 = SuperCardioid, 2 = HalfRectifiedDipole, 3 = Dipole.
+    virtual bool set_source_directivity_type(unsigned int src_id, int directivity_type) = 0;
     
     // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
     virtual bool set_source_rear_attenuation(unsigned int src_id, float rear_attenuation) = 0;
