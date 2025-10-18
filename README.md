@@ -79,6 +79,23 @@ Note that this is just a first iteration of the API and once I'm done with the `
     virtual bool set_source_attenuation_linear_falloff(unsigned int src_id, float lin_falloff) = 0;
     virtual bool set_source_attenuation_quadratic_falloff(unsigned int src_id, float sq_falloff) = 0;
     
+    // directivity_alpha = 0 : Omni.
+    // directivity_alpha = 1 : Fully Directional.
+    // [0, 1].
+    virtual bool set_source_directivity_alpha(unsigned int src_id, float directivity_alpha) = 0;
+    
+    // [1, 8]. 8 = sharpest.
+    virtual bool set_source_directivity_sharpness(unsigned int src_id, float directivity_sharpness) = 0;
+    
+    // 0 = Cardioid, 1 = SuperCardioid, 2 = HalfRectifiedDipole, 3 = Dipole.
+    virtual bool set_source_directivity_type(unsigned int src_id, int directivity_type) = 0;
+    
+    // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
+    virtual bool set_source_rear_attenuation(unsigned int src_id, float rear_attenuation) = 0;
+    
+    // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
+    virtual bool set_listener_rear_attenuation(float rear_attenuation) = 0;
+    
     virtual std::string check_error() = 0;
 ```
 
