@@ -31,14 +31,22 @@ Note that this is just a first iteration of the API and once I'm done with the `
     virtual std::optional<bool> is_source_playing(unsigned int src_id) = 0;
     
     virtual void pause_source(unsigned int src_id) = 0;
+    
+    virtual std::optional<bool> is_source_paused(unsigned int src_id) const = 0;
         
     virtual void stop_source(unsigned int src_id) = 0;
     
     virtual void set_source_volume(unsigned int src_id, float vol) = 0;
     
+    virtual std::optional<float> get_source_volume(unsigned int src_id) const = 0;
+    
     virtual void set_source_pitch(unsigned int src_id, float pitch) = 0;
     
+    virtual std::optional<float> get_source_pitch(unsigned int src_id) const = 0;
+    
     virtual void set_source_looping(unsigned int src_id, bool loop) = 0;
+    
+    virtual std::optional<bool> get_source_looping(unsigned int src_id) const
     
     virtual void set_source_standard_params(unsigned int src_id) = 0;
     
@@ -54,6 +62,8 @@ Note that this is just a first iteration of the API and once I'm done with the `
     
     virtual void set_source_panning(unsigned int src_id, std::optional<float> pan = std::nullopt) = 0;
     
+    std::optional<float> get_source_panning(unsigned int src_id) const = 0;
+    
     virtual void init_3d_scene() = 0;
 
     virtual void enable_source_3d_audio(unsigned int src_id, bool enable) = 0;
@@ -63,38 +73,74 @@ Note that this is just a first iteration of the API and once I'm done with the `
         unsigned int src_id, int channel,
         const std::array<float, 9>& rot_mtx,
         const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
+        
+    // std::array<float, 9> is a row-major 3x3 matrix.
+    virtual bool get_source_3d_state_channel(unsigned int src_id, int channel,
+        std::array<float, 9>& rot_mtx,
+        std::array<float, 3>& pos_world, std::array<float, 3>& vel_world) const = 0;
 
     // std::array<float, 9> is a row-major 3x3 matrix.
     virtual bool set_listener_3d_state_channel(
         int channel,
         const std::array<float, 9>& rot_mtx,
         const std::array<float, 3>& pos_world, const std::array<float, 3>& vel_world) = 0;
+        
+    // std::array<float, 9> is a row-major 3x3 matrix.
+    virtual bool get_listener_3d_state_channel(int channel,
+        std::array<float, 9>& rot_mtx,
+        std::array<float, 3>& pos_world, std::array<float, 3>& vel_world) const = 0;
 
     virtual bool set_source_speed_of_sound(unsigned int src_id, float speed_of_sound) = 0;
     virtual std::optional<float> get_source_speed_of_sound(unsigned int src_id) = 0;
 
     virtual bool set_source_attenuation_min_distance(unsigned int src_id, float min_dist) = 0;
+    virtual std::optional<float> get_source_attenuation_min_distance(unsigned int src_id) const = 0;
+    
     virtual bool set_source_attenuation_max_distance(unsigned int src_id, float max_dist) = 0;
+    virtual std::optional<float> get_source_attenuation_max_distance(unsigned int src_id) const = 0;
+    
     virtual bool set_source_attenuation_constant_falloff(unsigned int src_id, float const_falloff) = 0;
+    virtual std::optional<float> get_source_attenuation_constant_falloff(unsigned int src_id) const = 0;
+    
     virtual bool set_source_attenuation_linear_falloff(unsigned int src_id, float lin_falloff) = 0;
+    virtual std::optional<float> get_source_attenuation_linear_falloff(unsigned int src_id) const = 0;
+    
     virtual bool set_source_attenuation_quadratic_falloff(unsigned int src_id, float sq_falloff) = 0;
+    virtual std::optional<float> get_source_attenuation_quadratic_falloff(unsigned int src_id) const = 0;
     
     // directivity_alpha = 0 : Omni.
     // directivity_alpha = 1 : Fully Directional.
     // [0, 1].
     virtual bool set_source_directivity_alpha(unsigned int src_id, float directivity_alpha) = 0;
     
+    // directivity_alpha = 0 : Omni.
+    // directivity_alpha = 1 : Fully Directional.
+    // [0, 1].
+    virtual std::optional<float> get_source_directivity_alpha(unsigned int src_id) const = 0;
+    
     // [1, 8]. 8 = sharpest.
     virtual bool set_source_directivity_sharpness(unsigned int src_id, float directivity_sharpness) = 0;
     
+    // [1, 8]. 8 = sharpest.
+    virtual std::optional<float> get_source_directivity_sharpness(unsigned int src_id) const = 0;
+    
     // 0 = Cardioid, 1 = SuperCardioid, 2 = HalfRectifiedDipole, 3 = Dipole.
     virtual bool set_source_directivity_type(unsigned int src_id, int directivity_type) = 0;
+    
+    // 0 = Cardioid, 1 = SuperCardioid, 2 = HalfRectifiedDipole, 3 = Dipole.
+    virtual std::optional<int> get_source_directivity_type(unsigned int src_id) const = 0;
     
     // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
     virtual bool set_source_rear_attenuation(unsigned int src_id, float rear_attenuation) = 0;
     
     // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
+    virtual std::optional<float> get_source_rear_attenuation(unsigned int src_id) const = 0;
+    
+    // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
     virtual bool set_listener_rear_attenuation(float rear_attenuation) = 0;
+    
+    // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
+    virtual std::optional<float> get_listener_rear_attenuation() const = 0;
     
     virtual std::string check_error() = 0;
 ```
