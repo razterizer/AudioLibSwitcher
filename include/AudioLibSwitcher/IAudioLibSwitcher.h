@@ -32,7 +32,7 @@ namespace audio
     
     virtual void play_source(unsigned int src_id) = 0;
     
-    virtual bool is_source_playing(unsigned int src_id) = 0;
+    virtual std::optional<bool> is_source_playing(unsigned int src_id) = 0;
     
     virtual void pause_source(unsigned int src_id) = 0;
         
