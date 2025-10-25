@@ -142,6 +142,18 @@ Note that this is just a first iteration of the API and once I'm done with the `
     // [0.f, 1.f]. 0 = Silence, 1 = No Attenuation.
     virtual std::optional<float> get_listener_rear_attenuation() const = 0;
     
+    // 0 = RH_XRight_YUp_ZBackward, 1 = RH_XLeft_YUp_ZForward, 2 = RH_XRight_YDown_ZForward, 3 = RH_XLeft_YDown_ZBackward, 4 = RH_XRight_YForward_ZUp.
+    virtual bool set_source_coordsys_convention(unsigned int src_id, int cs_conv) = 0;
+    
+    // 0 = RH_XRight_YUp_ZBackward, 1 = RH_XLeft_YUp_ZForward, 2 = RH_XRight_YDown_ZForward, 3 = RH_XLeft_YDown_ZBackward, 4 = RH_XRight_YForward_ZUp.
+    virtual std::optional<int> get_source_coordsys_convention(unsigned int src_id) const = 0;
+    
+    // 0 = RH_XRight_YUp_ZBackward, 1 = RH_XLeft_YUp_ZForward, 2 = RH_XRight_YDown_ZForward, 3 = RH_XLeft_YDown_ZBackward, 4 = RH_XRight_YForward_ZUp.
+    virtual bool set_listener_coordsys_convention(int cs_conv) = 0;
+    
+    // 0 = RH_XRight_YUp_ZBackward, 1 = RH_XLeft_YUp_ZForward, 2 = RH_XRight_YDown_ZForward, 3 = RH_XLeft_YDown_ZBackward, 4 = RH_XRight_YForward_ZUp.
+    virtual std::optional<int> get_listener_coordsys_convention() const = 0;
+    
     virtual std::string check_error() = 0;
 ```
 
