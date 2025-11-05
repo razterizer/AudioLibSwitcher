@@ -40,9 +40,9 @@ namespace audio
         
     virtual void stop_source(unsigned int src_id) = 0;
     
-    virtual void set_source_volume(unsigned int src_id, float vol) = 0;
+    virtual void set_source_gain(unsigned int src_id, float gain) = 0;
     
-    virtual std::optional<float> get_source_volume(unsigned int src_id) const = 0;
+    virtual std::optional<float> get_source_gain(unsigned int src_id) const = 0;
     
     virtual void set_source_pitch(unsigned int src_id, float pitch) = 0;
     
