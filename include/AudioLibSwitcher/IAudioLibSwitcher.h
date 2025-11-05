@@ -44,6 +44,16 @@ namespace audio
     
     virtual std::optional<float> get_source_gain(unsigned int src_id) const = 0;
     
+    virtual void set_source_volume_dB(unsigned int src_id, float vol_dB) = 0;
+    
+    virtual std::optional<float> get_source_volume_dB(unsigned int src_id) const = 0;
+    
+    // Perceptually linear mapping: 0 -> -60 dB, 1 -> 0 dB.
+    virtual void set_source_volume_slider(unsigned int src_id, float vol01) = 0;
+    
+    // Perceptually linear mapping: 0 -> -60 dB, 1 -> 0 dB.
+    virtual std::optional<float> get_source_volume_slider(unsigned int src_id) const = 0;
+    
     virtual void set_source_pitch(unsigned int src_id, float pitch) = 0;
     
     virtual std::optional<float> get_source_pitch(unsigned int src_id) const = 0;
