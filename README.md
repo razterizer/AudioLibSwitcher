@@ -44,11 +44,11 @@ Note that this is just a first iteration of the API and once I'm done with the `
     
     virtual std::optional<float> get_source_volume_dB(unsigned int src_id) const = 0;
     
-    // Perceptually linear mapping: 0 -> -60 dB, 1 -> 0 dB.
-    virtual void set_source_volume_slider(unsigned int src_id, float vol01) = 0;
+    // Perceptually linear mapping: 0 -> min_dB dB, 1 -> 0 dB.
+    virtual void set_source_volume_slider(unsigned int src_id, float vol01, float min_dB = -60.f, std::optional<float> nl_taper = std::nullopt) = 0;
     
-    // Perceptually linear mapping: 0 -> -60 dB, 1 -> 0 dB.
-    virtual std::optional<float> get_source_volume_slider(unsigned int src_id) const = 0;
+    // Perceptually linear mapping: 0 -> min_dB dB, 1 -> 0 dB.
+    virtual std::optional<float> get_source_volume_slider(unsigned int src_id, float min_dB = -60.f, std::optional<float> nl_taper = std::nullopt) const = 0;
     
     virtual void set_source_pitch(unsigned int src_id, float pitch) = 0;
     
