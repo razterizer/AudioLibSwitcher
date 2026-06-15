@@ -1,0 +1,27 @@
+#:schema https://raw.githubusercontent.com/razterizer/forge/main/schemas/forge.recipe.schema.json
+
+[project]
+name = "AudioLibSwitcher"
+version = "1.0.0"
+type = "header_only"
+cpp_std = 20
+
+[sources]
+paths = []
+public_headers = ["include/AudioLibSwitcher/IAudioLibSwitcher.h"]
+
+[build]
+number = 1
+
+[release]
+build_number_format = "dotted"
+
+[profile.workflow-release.build]
+configuration = "Release"
+
+[profile.Debug.build]
+configuration = "Debug"
+defines = ["DEBUG=1"]
+
+[profile.Release.build]
+configuration = "Release"
